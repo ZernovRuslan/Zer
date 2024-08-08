@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  :root {
+    --toast-bg-dark: theme(backgroundColor.zinc.800);
+    --toast-text-light: theme(backgroundColor.zinc.100);
+  }
+
+  /* SCROLL WITH NO SCROLL BAR */
+  .no-scrollbar {
+    overflow: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  /* FLOATS */
+  .clearfix {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  /* ABSOLUTE POSITION */
+  .absolute-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fixed-centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* FLEX */
+  .flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .padding-section-x {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .margin-section-t {
+    margin-top: 5rem;
+  }
+
+  .max-width-page {
+    max-width: 1216px;
+  }
+
+  .form-required {
+    animation: rollUp 200 ease-out forwards;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: theme('colors.red.500');
+  }
+
+  @keyframes rollUp {
+    from {
+      transform: translate(0);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(-1.75rem);
+      opacity: 1;
+    }
+  }
+
+  body {
+    font-family: theme('fontFamily.default');
+    color: theme('textColor.zinc.950');
+    background-image: url('/global/landing-bg.webp');
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * :disabled {
+    cursor: not-allowed;
+  }
+}
